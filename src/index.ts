@@ -1,18 +1,11 @@
 import { CSVFileReader } from './CSVFileReader.js';
-import { MatchResult} from './MatchResult.js';
+import { MatchResult } from './MatchResult.js';
 
 //Run command npm install @types/node
 const reader = new CSVFileReader('football.csv');
 reader.read();
 
 let manUtdWins = 0;
-
-// enum - enumerations
-enum MatchResult {
-    HomeWin = 'H',
-    Awaywin = 'A',
-    Draw = 'D',
-}
 
 //To get how many matches man utd won itterate thourgh arrays
 for (let match of reader.data) {

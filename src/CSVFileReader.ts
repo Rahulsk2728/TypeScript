@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { datestringToDate } from './utils.js';
-import { MatchResult} from './MatchResult.js';
+import { MatchResult } from './MatchResult.js';
 
 export class CSVFileReader {
     data: string[][] = [];
@@ -23,7 +23,7 @@ export class CSVFileReader {
                     row[2],
                     parseInt(row[3]),
                     parseInt(row[4]),
-                    row[5] as MatchResult
+                    row[5] as MatchResult,
                 ];
             });
     }
