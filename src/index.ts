@@ -1,8 +1,8 @@
-import { CSVFileReader } from './CSVFileReader.js';
+import { MatchReader } from './MatchReader.js';
 import { MatchResult } from './MatchResult.js';
 
 //Run command npm install @types/node
-const reader = new CSVFileReader('football.csv');
+const reader = new MatchReader('football.csv');
 reader.read();
 
 let manUtdWins = 0;

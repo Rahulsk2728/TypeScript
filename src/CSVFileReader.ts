@@ -1,11 +1,14 @@
 import fs from 'fs';
-import { datestringToDate } from './utils.js';
-import { MatchResult } from './MatchResult.js';
 
-export class CSVFileReader {
-    data: string[][] = [];
+
+
+
+export abstract class CSVFileReader<T>{
+    data: T[] = [];
 
     constructor(public filename: string) {}
+
+    abstract mapRow(row: string[]): T;
 
     read(): void {
         this.data = fs
@@ -16,15 +19,8 @@ export class CSVFileReader {
             .map((row: string): string[] => {
                 return row.split(',');
             })
-            .map((row: string[]): any => {
-                return [
-                    datestringToDate(row[0]),
-                    row[1],
-                    row[2],
-                    parseInt(row[3]),
-                    parseInt(row[4]),
-                    row[5] as MatchResult,
-                ];
-            });
+            .map(this.mapRow);
     }
+
+    //Helper function
 }
